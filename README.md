@@ -1,3 +1,24 @@
+# 中文补充
+  https://forum.cocos.org/t/topic/87390
+    
+------------------- 来源 --------------------------
+  首先感谢Cocos团队提供了很好的前端工具让我们能做到这一步。如题，这是我们之前一段时间做的一个游戏的完整源码     https://github.com/genxium/TreasureHunterX581
+
+由于这类游戏常会遇到匹配不到真实玩家需要机器人加入陪玩，所以这里也提供一个配套的BotServer仓库(非必须，测试时两个浏览器对战即可)142。
+
+现在前端（Creator v2.2.1）和后端(Golang + gin as httpv1 framework + Gorilla as websocket lib)被调整为了仅支持1v1模式，但后端仅需较为少量的改动即可支持2v2 ~ 5v5（自己公网测过），而前端就没那么方便了很多代码都假设了“刚好两个玩家一局”。所使用的同步算法对UDP也是友善的，具体可参照 http://fabiensanglard.net/quake3/network.php182 的说明，我也是对着理论做的实现和调整。
+
+此仓库对应的游戏已经上线在微信小游戏，但由于容量有限我们也没有资源继续维护了，就不发入口了。因为我们是始于实在没有资源更新此仓库了才决定开源，愿有心人能采其可用之处，但相对地我这边原则上不处理新功能建议，bug汇报或者pull requests了，仓库里的文档和注释应该也不会提供翻译或者解释。
+
+关于主要后端代码的解释请参考 https://app.yinxiang.com/fx/5c575124-01db-419b-9c02-ec81f78c6ddc60 中“Lifecycle events for networking”的部分，同时此笔记也简要说明了本代码库的网络拓扑结构以及部分设计思路，位置同步的边界情况等。
+
+本代码库中并无“玩家主动发射子弹”这一操作，但经实践是可以做到的，请把“发射子弹”的动作立刻上报到后端（区别于位置信息的规律等间隔上报）。
+
+另，本代码库基于个人爱好及立项时考虑支持5v5或以上场景，所以并没有选用目前流行的Peer2Peer LockStep Sync实现，如果你需要查看Peer2Peer LockStep的资料，可以从这一篇 http://clintonbrennan.com/2013/12/lockstep-implementation-in-unity3d/54 开始。
+
+
+------------------- Readme.md --------------------------
+
 # 0. Preface
 This repository introduces an intact "multillayer online arena" game, with centralized framesync@30fps(tunable), room management and player session management. 
 
