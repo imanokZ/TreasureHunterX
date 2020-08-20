@@ -2,7 +2,8 @@
   https://forum.cocos.org/t/topic/87390
     
 ------------------- 来源 --------------------------
-  首先感谢Cocos团队提供了很好的前端工具让我们能做到这一步。如题，这是我们之前一段时间做的一个游戏的完整源码     https://github.com/genxium/TreasureHunterX581
+
+首先感谢Cocos团队提供了很好的前端工具让我们能做到这一步。如题，这是我们之前一段时间做的一个游戏的完整源码     https://github.com/genxium/TreasureHunterX581
 
 由于这类游戏常会遇到匹配不到真实玩家需要机器人加入陪玩，所以这里也提供一个配套的BotServer仓库(非必须，测试时两个浏览器对战即可)142。
 
